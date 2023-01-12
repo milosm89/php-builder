@@ -21,7 +21,7 @@ using namespace std;
 class CreateProject {
 
     private:
-        std::string project;
+        string project;
         ofstream File[10], RootFile[3], Data[10][6];
         static constexpr int  rootArr = 3;
         string rootfiles[rootArr] = {"/.env", "/global.css", "/index.php"};
