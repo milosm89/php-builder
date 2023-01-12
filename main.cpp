@@ -10,6 +10,8 @@ Version: 1.0.0
 */
 
 #include <iostream>
+#include <chrono>
+#include <thread>
 #include <direct.h>
 #include <string>
 #include <fstream>
@@ -200,5 +202,6 @@ int main() {
     project.projectName();
     project.createFolders();
     cout <<"Project is created! ";
+    this_thread::sleep_for(chrono::milliseconds(5000));
     return 0;
 }
