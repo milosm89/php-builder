@@ -44,6 +44,16 @@ class CreateProject {
     public:
         void projectName() {
 
+            cout << "\n###################################################\n";
+            cout <<"            ___        ___   ___          ___     "<< endl;
+            cout <<"    |    | |     |    |   | |   | |    | |        "<< endl;
+            cout <<"    | /\\ | |___  |    |     |   | |\\  /| |__    "<< endl;
+            cout <<"    |/  \\| |___  |___ |___| |___| | \\/ | |___   "<< endl;
+            cout << "\n################################################### \n";
+            cout << "***************************************************\n";
+            cout << "   This is a custom php framework builder app!" << endl;
+            cout << "***************************************************\n";
+     
             cout <<"Enter the name of project!" << endl;
             cin >> project;
 
