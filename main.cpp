@@ -89,7 +89,7 @@ class CreateProject {
                     else if (i == 1)
                     {
                         createSubFolders(i, seed);
-                        createSubFolderFile( i, seed, seedFile);
+                        createSubFolderFile( i, seed, seedFile, seedContent);
                         createFolderFile( i, dbFiles, dbArr);
 
                     }
@@ -110,7 +110,7 @@ class CreateProject {
                     else if (i == 5)
                     {
                         createSubFolders(i, layout);
-                        createSubFolderFile(i, layout, layoutFile); 
+                        createSubFolderFile(i, layout, layoutFile, layoutContent); 
                         createFolderFile( i, viewFile, viewArr);
                        
                     }
@@ -128,7 +128,7 @@ class CreateProject {
                 if (!RootFile[i])
                 {
                     RootFile[i].open(project + rootfiles[i], ios::app|ios::out);
-                    RootFile[i] << content[i];
+                    RootFile[i] << rootContent[i];
                     cout <<"File: " << rootfiles[i] << " is created: " << endl;
                 }
                 else
@@ -172,16 +172,17 @@ class CreateProject {
             }
         }
 
-        void createSubFolderFile(  int i, string subFolder, string file) {
+        void createSubFolderFile(  int i, string subFolder, string file, string content) {
 
             if (mkdir((project + folders[i] + subFolder).c_str()) == -1)
             {
                 File[i].open(project + folders[i] + subFolder + file, ios::in);
 
                 if (!File[i])
-                {
+                {   
                     File[i].open(project + folders[i] + subFolder + file, ios::app|ios::out);
-                    File[i] << "<?php \n\techo \"Hello World!\";  \n?>";
+                    File[i] << content;
+                    // File[i] << "<?php \n\techo \"Hello World!\";  \n?>";
                     cout << "File: " << folders[i] << subFolder << file << " is created! " << endl;
                 }
                 
