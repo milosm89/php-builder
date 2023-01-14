@@ -84,34 +84,34 @@ class CreateProject {
                     
                     if (i == 0)
                     {  
-                        createFolderFile( i, contrFile, contrArr);
+                        createFolderFile( i, contrFile, contrArr, controllerData);
                     }
                     else if (i == 1)
                     {
                         createSubFolders(i, seed);
                         createSubFolderFile( i, seed, seedFile, seedContent);
-                        createFolderFile( i, dbFiles, dbArr);
+                        createFolderFile( i, dbFiles, dbArr, dbData);
 
                     }
                     else if (i == 2)
                     {
-                        createFolderFile( i, incFile, incArr);
+                        createFolderFile( i, incFile, incArr, incData);
                        
                     }
                     else if (i == 3)
                     {
-                        createFolderFile( i, jsFile, jsArr);
+                        createFolderFile( i, jsFile, jsArr, jsData);
                        
                     }
                     else if (i == 4)
                     {
-                        createFolderFile( i, modelFile, modelArr);
+                        createFolderFile( i, modelFile, modelArr, modelData);
                     }
                     else if (i == 5)
                     {
                         createSubFolders(i, layout);
                         createSubFolderFile(i, layout, layoutFile, layoutContent); 
-                        createFolderFile( i, viewFile, viewArr);
+                        createFolderFile( i, viewFile, viewArr, viewsData);
                        
                     }
                     
@@ -138,7 +138,7 @@ class CreateProject {
             }
         }
 
-        void createFolderFile( int i, string file[], int size) {
+        void createFolderFile( int i, string file[], int size, string content) {
 
             if (mkdir((project + folders[i]).c_str()) == -1)
             {
@@ -149,7 +149,7 @@ class CreateProject {
                     if (!Data[i][j])
                     {
                         Data[i][j].open(project + folders[i] + file[j], ios::app|ios::out);
-                        Data[i][j] << "<?php \n\techo \"Hello World!\";  \n?>";
+                        Data[i][j] << content;
                         cout <<"File: " << folders[i] << file[j] << " is created: " << endl;
                     }
                     else
@@ -182,7 +182,6 @@ class CreateProject {
                 {   
                     File[i].open(project + folders[i] + subFolder + file, ios::app|ios::out);
                     File[i] << content;
-                    // File[i] << "<?php \n\techo \"Hello World!\";  \n?>";
                     cout << "File: " << folders[i] << subFolder << file << " is created! " << endl;
                 }
                 
