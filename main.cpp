@@ -24,7 +24,7 @@ class CreateProject {
         string project;
         ofstream File[10], RootFile[3], Data[10][6];
         static constexpr int  rootArr = 3;
-        string rootfiles[rootArr] = {"/.env", "/global.css", "/index.php"};
+        string rootfiles[rootArr] = {"/env.php", "/global.css", "/index.php"};
         string folders[6] = {"/controller", "/database", "/includes", "/js", "/model", "/views"};
         static constexpr int  contrArr = 3;
         string contrFile[contrArr] = {"/login.contr.php", "/post.contr.php", "/signup.contr.php"};
